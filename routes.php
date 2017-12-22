@@ -33,7 +33,7 @@ function call($controller, $action){
 
 		case 'keranjang':
 		require_once('models/m_home.php');
-		require_once('models/m_kode.php');
+		//require_once('models/m_kode.php');
 		require_once('models/m_keranjang.php');
 		$controller=new KeranjangController();
 		break;

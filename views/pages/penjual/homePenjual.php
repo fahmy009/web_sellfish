@@ -6,7 +6,7 @@
 
 
 <body class="body-custom">
-	<h1>PENJUAL PANEL</h1>
+	<!-- <h1>PENJUAL PANEL</h1> -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -33,8 +33,9 @@
 							
 						</ul>
 					</li>
-					<!-- <li><a href="#">Cara Pemesanan</a></li> -->
-				</ul>
+          <li><a href="?controller=keranjang&action=transaksiPenjual">Transaksi</a></li>
+          <!-- <li><a href="#">Cara Pemesanan</a></li> -->
+        </ul>
 				<!-- <form class="navbar-form navbar-left">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search">
@@ -59,71 +60,66 @@
 
 
 	<div class="row">
-      <div class="col-md-8">
-        <div class="row state-overview">
-          <div class="col-lg-6 col-sm-6" >
-            <section class="panel" style="background-color: #242D3E;">
+    <div class="col-md-8">
+      <div class="row state-overview">
+       <?php foreach ($stat as $item){
+
+         ?>
+
+         <div class="col-lg-6 col-sm-6" >
+          <section class="panel" style="background-color: #242D3E;">
             <div class="symbol terques">
               <i class="fa fa-users"></i>
             </div>
             <div class="value" style="margin-left: 15px;">
-              <h1 class="count" style="color: white;">495</h1>
+              <h1 class="count" style="color: white;"><?php echo $item['terjual']." kg"; ?></h1>
               <p style="color: white;">Ikan yang Terjual</p>
             </div>
           </section>
         </div>
         <div class="col-lg-6 col-sm-6">
           <section class="panel" style="background-color: #242D3E;">
-          <div class="symbol red">
-            <i class="fa fa-gift"></i>
-          </div>
-          <div class="value" style="margin-left: 15px;">
-            <h1 class="count2" style="color: white;">947</h1>
-            <p style="color: white;">Stok Ikan</p>
-          </div>
-        </section>
-      </div>
-      <div class="col-lg-6 col-sm-6" >
-        <section class="panel" style="background-color: #242D3E;">
-        <div class="symbol yellow">
-          <i class="fa fa-shopping-cart"></i>
+            <div class="symbol red">
+              <i class="fa fa-gift"></i>
+            </div>
+            <div class="value" style="margin-left: 15px;">
+              <h1 class="count2" style="color: white;"><?php echo $item['jumlah_stok']." kg"; ?></h1>
+              <p style="color: white;">Stok Ikan</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-lg-6 col-sm-6">
+          <section class="panel" style="background-color: #242D3E;">
+            <div class="symbol purple">
+              <i class="fa fa-money"></i>
+            </div>
+            <div class="value" style="margin-left: 15px;">
+              <h1 class="count4" style="color: white;"><?php echo $item['nama_produk']; ?></h1>
+              <p style="color: white;">Ikan Terlaris</p>
+            </div>
+          </section>
+        </div>
+        <?php } ?>
+        <div class="col-md-12">
+         <div class="panel-heading" style="background-color: #526485; border: none;">
+          <header class="panel-title">
+            <div class="text-center">
+              <strong style="color: white;">Quote of the Day</strong>
+            </div>
+          </header>
+        </div>
+        <section class="panel" style="border-radius: 0px 0px 7px 7px; background-color: #242D3E; padding-bottom: 85px;">
+         <div class="symbol purple">
+          <i class="fa fa-money"></i>
         </div>
         <div class="value" style="margin-left: 15px;">
-          <h1 class="count3" style="color: white;">328</h1>
-          <p style="color: white;">Jumlah Pelanggan</p>
+          <h1 class="count4" style="color: white;">Jangan lupa bersyukur hari ini...!</h1>
+
         </div>
       </section>
     </div>
-    <div class="col-lg-6 col-sm-6">
-      <section class="panel" style="background-color: #242D3E;">
-      <div class="symbol purple">
-        <i class="fa fa-money"></i>
-      </div>
-      <div class="value" style="margin-left: 15px;">
-        <h1 class="count4" style="color: white;">ikan tuna</h1>
-        <p style="color: white;">Ikan Terlaris</p>
-      </div>
-    </section>
-  </div>
-  <div class="col-md-12">
-   <div class="panel-heading" style="background-color: #526485; border: none;">
-      <header class="panel-title">
-        <div class="text-center">
-          <strong style="color: white;">Quote of the Day</strong>
-        </div>
-      </header>
-    </div>
-   <section class="panel" style="border-radius: 0px 0px 7px 7px; background-color: #242D3E; padding-bottom: 85px;">
-   <div class="symbol purple">
-    <i class="fa fa-money"></i>
-  </div>
-  <div class="value" style="margin-left: 15px;">
-    <h1 class="count4" style="color: white;">Jangan lupa bersyukur hari ini...!</h1>
-    
-  </div>
-</section>
-</div>
-</div>        
+  </div>        
 </div>
 <div class="col-md-4">
   <div class="panel panel-default" style="border:none; border-radius: 5px 5px 10px 10px;">
@@ -140,7 +136,7 @@
         <img src="resources/img/man.png" style="width: 190px; height: 180px;">
         <br>
         <h3 style="color: white;">Penjual</h3>
-        <small class="label label-warning" style="color: white;">Nama Penjual</small>
+        <small class="label label-warning" style="color: white;"><?php echo $_SESSION['nama_user'];?></small>
         <br><br><br><br>
         <p style="color: white;">Selamat Datang Kembali , Selamat Bekerja Kembali</p>
       </div>

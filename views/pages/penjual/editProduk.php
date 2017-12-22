@@ -6,7 +6,7 @@
 
 
 <body class="body-custom">
-	<h1>PENJUAL PANEL</h1>
+	
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -33,6 +33,7 @@
 							
 						</ul>
 					</li>
+					<li><a href="?controller=keranjang&action=transaksiPenjual">Transaksi</a></li>
 					<!-- <li><a href="#">Cara Pemesanan</a></li> -->
 				</ul>
 				<!-- <form class="navbar-form navbar-left">

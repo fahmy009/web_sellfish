@@ -77,10 +77,24 @@ Class ProdukController{
 
 	public function detailProduk(){
 
+		
+		
+		$posts=Produk::showDetailProduk($_GET['id_produk']);
+		require_once('views/pages/detailProduk.php');
+		
+		
+
+
+		
+	}
+
+
+	public function detailBeliProduk(){
+
 		if (isset($_SESSION['login_user'])) {
 			
 			$posts=Produk::showDetailProduk($_GET['id_produk']);
-			require_once('views/pages/detailProduk.php');
+			require_once('views/pages/pembeli/detailProduk.php');
 		}
 		else{
 			header('location:index.php?controller=login&action=login');

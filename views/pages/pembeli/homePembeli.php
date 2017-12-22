@@ -24,9 +24,12 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
-					<li><a href="komoditas.html">Daftar Komoditas</a></li>
-					<li><a href="#">Cara Pemesanan</a></li>
+					<li class="active"><a href="?controller=home&action=homePembeli">Home <span class="sr-only">(current)</span></a></li>
+					<!-- <li><a href="komoditas.html">Daftar Komoditas</a></li>
+					<li><a href="#">Cara Pemesanan</a></li> -->
+
+					<li><a href="?controller=keranjang&action=showCart">Keranjang</a></li>
+					<li><a href="?controller=home&action=showTransaksiPembeli">Transaksi</a></li>
 
 				</ul>
 				<!-- <form class="navbar-form navbar-left">
@@ -36,13 +39,13 @@
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form> -->
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Keranjang</a></li>
+				
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login/Register <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nama_user']; ?> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="?controller=login&action=login">Login</a></li>
-							<li><a href="?controller=register&action=register">Register</a></li>
-							
+							<li><a href="logout.php">Logout</a></li>
+							<!-- <li><a href="?controller=register&action=register">Register</a></li> -->
+
 						</ul>
 					</li>
 				</ul>
@@ -113,112 +116,12 @@
 								Oleh : <b><?php echo $item['penjual']; ?></b>
 
 							</p>
-							<a href="?controller=produk&action=detailProduk&id_produk=<?php echo $item['id_produk']; ?>" class="btn btn-primary">Lihat Detail</a>
+							<a href="?controller=produk&action=detailBeliProduk&id_produk=<?php echo $item['id_produk']; ?>" class="btn btn-primary" style="width:100%;">Beli</a>
 						</div>
 					</div>
 				</div>
 				<?php } ?>
-			<!-- <div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" src="resources/img/tuna.jpg" alt="Card image cap">
-					<div class="card-block">
-						<h4 class="card-title">Ikan Tuna</h4>
-						<p class="card-text">
-							Harga : Rp 30000/kg <br>
-							Jumlah stok : 500 kg <br>
-
-						</p>
-						<a href="#" class="btn btn-primary">Beli</a>
-					</div>
-				</div>
-			</div> -->
-
+			
 		</div>
 
 

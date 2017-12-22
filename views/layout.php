@@ -42,12 +42,12 @@ session_start();
   <?php require_once('routes.php') ?>
 
 
-  <div class="footer-custom">
+ <!--  <div class="footer-custom">
     <div class="container">
 
 
     </div>
-  </div>
+  </div> -->
 
 
 
